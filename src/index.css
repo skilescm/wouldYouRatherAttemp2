@@ -1,0 +1,149 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: #252525;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  background-color: lightblue;
+  
+}
+.nav ul {
+  display: flex;
+  text-decoration: none;
+}
+
+li {
+  list-style-type: none;
+  padding: 10px;
+  text-decoration: none;
+}
+.leaderboard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.leaderboard-list {
+  display: flex;
+  text-decoration: none;
+}
+.leaderboard-entry {
+  width: 150px;
+}
+
+.auth {
+  padding-right: 40px;
+}
+
+.dashboard {
+  margin-top: 30px;
+}
+
+.title {
+  padding-left: 50px;
+}
+
+.salutation {
+  padding-left: 50px;
+}
+
+.question-filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.question-list {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.question {
+  display: flex;
+  flex-direction: row;
+  height: 100px;
+  border: 1px solid #000;
+  margin-left: 50px;
+  margin-right: 50px;
+  margin-bottom: 20px;
+}
+
+.question-author {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.optionOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: yellow;
+}
+
+.optionOne-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: blue;
+}
+
+.optionTwo {
+  display: flex;  
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: pink;
+}
+
+.optionTwo-stats {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  background-color: greenyellow;
+}
+
+.leaderboard-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.new-question-box {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.new-option1 {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.new-option2 {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+}
+
+.submit-button {
+  width: 120px;
+  height: 40px;
+
+}
+
