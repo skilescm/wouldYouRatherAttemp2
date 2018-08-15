@@ -14,7 +14,7 @@ class NewQuestion extends Component {
     generateId = () => {
         return '_' + Math.random().toString(36).substr(2, 9);
     }
-    
+
     submitClick = () => {
 
         if (this.state.optionOne === '' || this.state.optionTwo === '') {
@@ -55,7 +55,7 @@ class NewQuestion extends Component {
         
         return (
             <div>
-                <h3 className = 'center'> Enter Your Question</h3>
+                <h3 className = 'salutation'> Enter Your Question</h3>
                 <div className='new-question-box'>
                     <div className='new-option1'>
                         <p>Option 1</p>
@@ -66,9 +66,11 @@ class NewQuestion extends Component {
                         <input type='text' onChange={(e) => {this.setState({optionTwo: e.target.value})}}/>
                     </div>
                 </div>
+                <div className='button-container'>
                 <button className='submit-button' type='submit' onClick={() => {this.submitClick()}}>
                     Submit
                 </button>
+                </div>
             </div>
         )
     }

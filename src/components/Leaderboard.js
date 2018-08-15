@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
+import * as avatar from '../images'
 
 class Leaderboard extends Component {
     render () {
@@ -30,7 +31,7 @@ class Leaderboard extends Component {
                                 {i+1}
                             </li>
                             <li key={user.name+"avatar"}className='leaderboard-entry'>
-                            <img src={user.avatarURL} alt={user.name} className='leaderboard-avatar' />
+                            <img src={avatar[user.avatar]} alt={user.name} className='avatar' />
                             </li>   
                            
                             <li key={user.id} className='leaderboard-entry'>

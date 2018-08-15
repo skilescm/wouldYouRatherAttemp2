@@ -8,7 +8,7 @@ class Home extends Component {
         console.log(this.props)
         return (
             <div>
-                <h3 className = 'center'> Select a User</h3>
+                <h3 className = 'salutation'> Select a User</h3>
                 <UserSelect />
             </div>
         )

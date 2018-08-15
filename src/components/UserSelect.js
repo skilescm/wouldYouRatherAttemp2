@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { connect} from 'react-redux'
 import  * as actions from '../actions/autheduser'
 import { withRouter } from 'react-router-dom'
+import * as avatar from '../images'
+
 
 class UserSelect extends Component {
     
@@ -18,12 +20,11 @@ class UserSelect extends Component {
         console.log(this.props, "userSelect")
         return (
             <div>
-                <h3 className = 'center'> User Selection has Loaded</h3>
-                <ul className='dashboard-list'>
+                <ul className='user-list'>
                     {Object.values(this.props.users).map((user) => (
-                        <li key={user.id} onClick={() => {this.handleClick(user.id)}}>
-                            {user.name}
-                            <img src={user.avatar} alt={user.name}/>                        
+                        <li className='user-entry' key={user.id} onClick={() => {this.handleClick(user.id)}}>                            
+                            <img className='avatar' src={avatar[user.avatarURL]} alt={user.name}/>  
+                            {user.name}                      
                         </li>
                     ))}
                  </ul>

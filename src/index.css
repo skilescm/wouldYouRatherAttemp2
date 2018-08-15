@@ -13,8 +13,7 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  background-color: lightblue;
-  
+  background-color: lightblue;  
 }
 .nav ul {
   display: flex;
@@ -34,6 +33,7 @@ li {
 .leaderboard-list {
   display: flex;
   text-decoration: none;
+  align-items: center;
 }
 .leaderboard-entry {
   width: 150px;
@@ -97,7 +97,7 @@ li {
   justify-content: center;
   align-items: center;
   width: 50%;
-  background-color: blue;
+  background-color: lightblue;
 }
 
 .optionTwo {
@@ -141,9 +141,37 @@ li {
   width: 400px;
 }
 
+.button-container {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
 .submit-button {
   width: 120px;
   height: 40px;
+  border-radius: 25px;
+  border: solid 1px green;
+  background-color: transparent;
+  color: green;
+}
 
+.submit-button:hover {
+  background-color: green;
+  color: white;
+}
+.submit-button:active {
+  background-color: darkgreen;
+}
+
+.avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 100px;
+}
+
+.user-entry {
+  display: flex;
+  align-items: center;
 }
 
