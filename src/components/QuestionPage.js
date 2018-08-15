@@ -8,26 +8,47 @@ class QuestionPage extends Component {
         filterValue: "all"
     }
 
-    checkFilter = () => {        
-        {this.state=== "unanswered" ? this.showUnanswered() :this.state=== "answered" ? this.showAnswered() : this.showAll()}
+    checkFilter = () => {
+    if (this.state.filterValue === "all") {
+        return this.showAll()
+    }
+    if (this.state.filterValue === "answered") {
+        return this.showAnswered()
+    }
+    
+    
     }
 
     showAnswered = () => {
-        return 
+        return (
+            <div className='question-list'>
+                            {Object.values(this.props.questions).filter(question => {  
+                                console.log(question, "question log")                              
+                                    return (                                    
+                                        question.optionOne.votes.filter(vote => {
+                                            console.log(vote, 'optionOne vote')
+                                            return vote === this.props.authedUser.id
+                                         }).length > 0
+                                                                            
+                                    )
+                                    })                       
+                                    .map((question, i) => {
+                                        <Question key={i} question={question} authedUser={this.props.authedUser}/>
+                                    })}
+                        </div>       
+        )
     }
 
     showAll = () => {
         console.log("working")
         console.log(this.props.questions)
         return (
-            console.log("all")
-            /*<div>
+                        
                 <div className='question-list'>
-                        {Object.values(this.props.questions).map((question, i) => (
-                            <Question key={i} question={question} authedUser={this.props.authedUser}/>
-                        ))}
-                </div>                
-            </div> */
+                            {Object.values(this.props.questions).map((question, i) => (
+                                <Question key={i} question={question} authedUser={this.props.authedUser}/>
+                            ))}
+                </div>                      
         );
     }
 
@@ -37,21 +58,21 @@ class QuestionPage extends Component {
    
 
     render () {
-        console.log(this.props.authedUser, "yeap")
-        console.log(this.props.questions, "questions bro")
+        console.log(this.state)
         return (
             <div className='dashboard'> 
                 <div className='question-filter'>
                         <p >Currently Showing:</p>
-                        <select className='question-selector' onChange={(e) => {this.setState({optionOne: e.target.value})}}>
+                        <select className='question-selector' onChange={(e) => {this.setState({filterValue: e.target.value})}}>
                             <option value="all">All Questions</option>
                             <option value="answered">Answered Questions</option>
                             <option value="unanswered">Unanswered Questions</option>
                         </select>
                     </div>                    
-                <h3 className = 'title'> Would you rather.....</h3>                       
-            </div>,
-            this.checkFilter()
+                <h3 className = 'title'> Would you rather.....</h3>  
+                {this.checkFilter()}                     
+            </div>
+           
         )
     }
 }
