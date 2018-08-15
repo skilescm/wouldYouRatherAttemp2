@@ -4,8 +4,8 @@
 The purpose of this project is to display two options to an authenticated user and let the choose what they "would rather".
 
 ## Install
-After cloning this repo you will need to run ```npm install`` to downlad package dependencies.
-Then you can run ```yarn start``` to run the application.
+After cloning this repo you will need to run `npm install` to downlad package dependencies.
+Then you can run `yarn start` to run the application.
 
 ## Functionality
 A user will have the ability to perform the following functions:
