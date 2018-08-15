@@ -1,11 +1,13 @@
-
+import avatar1 from '../images/avatar1.jpeg'
+import avatar2 from '../images/avatar2.jpg'
+import avatar3 from '../images/avatar3.jpg'
 
 
 let users = {
     sarahedo: {
       id: 'sarahedo',
       name: 'Sarah Edo',
-      avatarURL: '',
+      avatarURL: avatar3,
       answers: {
         "8xf0y6ziyjabvozdd253nd": 'optionOne',
         "6ni6ok3ym7mf1p33lnez": 'optionOne',
@@ -17,7 +19,7 @@ let users = {
     tylermcginnis: {
       id: 'tylermcginnis',
       name: 'Tyler McGinnis',
-      avatarURL: '',
+      avatarURL: avatar2,
       answers: {
         "vthrdm985a262al8qx3do": 'optionOne',
         "xj352vofupe1dqz9emx13r": 'optionTwo',
@@ -27,7 +29,7 @@ let users = {
     johndoe: {
       id: 'johndoe',
       name: 'John Doe',
-      avatarURL: '',
+      avatarURL: avatar1,
       answers: {
         "xj352vofupe1dqz9emx13r": 'optionOne',
         "vthrdm985a262al8qx3do": 'optionTwo',

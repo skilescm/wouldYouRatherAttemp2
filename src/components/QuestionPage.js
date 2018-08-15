@@ -15,6 +15,9 @@ class QuestionPage extends Component {
     if (this.state.filterValue === "answered") {
         return this.showAnswered()
     }
+    if (this.state.filterValue === "unanswered") {
+        return this.showUnanswered()
+    }
     
     
     }
@@ -23,19 +26,15 @@ class QuestionPage extends Component {
         return (
             <div className='question-list'>
                             {Object.values(this.props.questions).filter(question => {  
-                                console.log(question, "question log")                              
-                                    return (                                    
-                                        question.optionOne.votes.filter(vote => {
-                                            console.log(vote, 'optionOne vote')
-                                            return vote === this.props.authedUser.id
-                                         }).length > 0
-                                                                            
-                                    )
-                                    })                       
-                                    .map((question, i) => {
-                                        <Question key={i} question={question} authedUser={this.props.authedUser}/>
-                                    })}
-                        </div>       
+	                                return question.optionOne.votes.filter(vote => {
+	                                    return vote === this.props.authedUser
+	                                        }).length > 0 || question.optionTwo.votes.filter(vote => {
+                                                return vote === this.props.authedUser
+                                                    }).length > 0
+	                                            }).map((question, i) => {
+	                                                 return <Question key={i} question={question} authedUser={this.props.authedUser}/>
+                                })}
+                </div>   
         )
     }
 
@@ -53,7 +52,19 @@ class QuestionPage extends Component {
     }
 
     showUnanswered = () => {
-        return console.log("unanswered")
+        return (
+            <div className='question-list'>
+                            {Object.values(this.props.questions).filter(question => {  
+	                                return question.optionOne.votes.filter(vote => {
+	                                    return vote === this.props.authedUser
+	                                        }).length === 0 && question.optionTwo.votes.filter(vote => {
+                                                return vote === this.props.authedUser
+                                                    }).length === 0
+	                                            }).map((question, i) => {
+	                                                 return <Question key={i} question={question} authedUser={this.props.authedUser}/>
+                                })}
+                </div>  
+        )
     }
    
 
