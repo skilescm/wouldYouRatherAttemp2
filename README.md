@@ -27,3 +27,6 @@ This application is made up of the following components
 8. QuestionPage
 9. UserSelect
 10. ViewQuestion
+
+## Credit
+This application uses a random ID generator function that was found [here](https://gist.github.com/gordonbrander/2230317)
