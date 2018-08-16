@@ -173,5 +173,10 @@ li {
 .user-entry {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.question-selector {
+  cursor: pointer;
 }
 

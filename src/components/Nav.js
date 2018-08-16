@@ -3,6 +3,10 @@ import { NavLink } from 'react-router-dom'
 
 
 export function Nav () {
+
+    
+
+   
     return (
         <nav className='nav'>
             <ul className='site-nav'>
@@ -12,7 +16,7 @@ export function Nav () {
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to='/new' activeClassName='active'>
+                    <NavLink to='/add' activeClassName='active'>
                         New Question
                     </NavLink>
                 </li>
@@ -23,8 +27,8 @@ export function Nav () {
                 </li>
             </ul>
             <ul className='auth'>
-                <li>
-                    <NavLink to='/' exact activeClassName='active'>
+                <li >
+                    <NavLink to='/' exact activeClassName='active' >
                         Sign Out
                     </NavLink>                    
                 </li>
@@ -32,5 +36,9 @@ export function Nav () {
         </nav>
     )
 }
+
+
+
+
 
 

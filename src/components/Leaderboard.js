@@ -1,10 +1,17 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
 import * as avatar from '../images'
+import { Redirect } from 'react-router-dom'
+import Home from './Home'
 
 class Leaderboard extends Component {
-    render () {
-        return (
+    render () {   
+        
+        if (this.props.authedUser === "") {
+            return <Redirect to='/' exact component={Home} />
+        }
+
+        return (          
             <div className='container'>
                 <h3 className = 'salutation'>Here are your leaders!</h3>
                 <div className='leaderboard'>
@@ -52,7 +59,7 @@ class Leaderboard extends Component {
 }
 
 
-function mapStateToProps ({ users }) {
+function mapStateToProps ({ users, authedUser }) {
 
     let leaderboard = []
 
@@ -65,7 +72,6 @@ function mapStateToProps ({ users }) {
         answers: Object.keys(users[userId].answers).length
         })
     })
-    console.log(leaderboard, "answers")
     leaderboard.sort(function (a, b) {
         return (b.questions + b.answers) - (a.questions + a.answers)
       })
@@ -73,6 +79,7 @@ function mapStateToProps ({ users }) {
     return {
         leaderboard,
         users,
+        authedUser,
     }
 }
 export default connect(mapStateToProps)(Leaderboard)

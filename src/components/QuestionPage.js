@@ -5,7 +5,7 @@ import Question from './Question'
 class QuestionPage extends Component {
 
     state = {
-        filterValue: "all"
+        filterValue: "unanswered"
     }
 
     checkFilter = () => {
@@ -69,15 +69,14 @@ class QuestionPage extends Component {
    
 
     render () {
-        console.log(this.state)
         return (
             <div className='dashboard'> 
                 <div className='question-filter'>
                         <p >Currently Showing:</p>
-                        <select className='question-selector' onChange={(e) => {this.setState({filterValue: e.target.value})}}>
-                            <option value="all">All Questions</option>
-                            <option value="answered">Answered Questions</option>
+                        <select className='question-selector' onChange={(e) => {this.setState({filterValue: e.target.value})}}>                            
                             <option value="unanswered">Unanswered Questions</option>
+                            <option value="answered">Answered Questions</option>
+                            <option value="all">All Questions</option>
                         </select>
                     </div>                    
                 <h3 className = 'title'> Would you rather.....</h3>  

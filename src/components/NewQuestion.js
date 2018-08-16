@@ -55,7 +55,7 @@ class NewQuestion extends Component {
         
         return (
             <div>
-                <h3 className = 'salutation'> Enter Your Question</h3>
+                <h3 className = 'salutation'> Would You Rather....</h3>
                 <div className='new-question-box'>
                     <div className='new-option1'>
                         <p>Option 1</p>

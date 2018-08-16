@@ -1,14 +1,18 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
-import { Link, withRouter } from 'react-router-dom'
+import { Link, withRouter, Redirect } from 'react-router-dom'
+import Home from './Home'
 
 class Question extends Component {
 
-    answerClick = (user) => {
-        console.log(user)           
-    }
+
 
     render () {
+
+        if (this.props.authedUser === "") {
+            return <Redirect to='/' exact component={Home} />
+        }
+
         const {question} = this.props;
         return (
             <div className='question-card'>                   

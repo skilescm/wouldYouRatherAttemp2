@@ -13,7 +13,6 @@ import ViewQuestion from './ViewQuestion'
 class App extends Component {
   componentDidMount() {
     this.props.dispatch(handleInitialData())
-    console.log(this.props)
   }
   
   render() {    
@@ -29,7 +28,7 @@ class App extends Component {
                   <Route path='/' exact component={Home} />
                   <Route path='/dashboard' component={Dashboard} />
                   <Route path='/questions/:question_id' render={() => <ViewQuestion questions={this.props.questions} />} />
-                  <Route path='/new' component={NewQuestion} />
+                  <Route path='/add' component={NewQuestion} />
                   <Route path='/leaderboard' component={Leaderboard} />
                   
             </div>}  

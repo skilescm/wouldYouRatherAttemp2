@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom'
 import * as actions from '../actions/questions'
 import Home from './Home'
+import * as avatar from '../images'
+
 
 class ViewQuestion extends Component {
     
@@ -37,7 +39,10 @@ class ViewQuestion extends Component {
 
     renderQuestion = (question, questionId) => {        
         const {optionOne, optionTwo} = question
+          
+
         return (
+            
             <div className='dashboard'>
                 <p className='salutation'>You have not answered this question</p>
                 <div className='question'> 
@@ -60,6 +65,7 @@ class ViewQuestion extends Component {
                 </div>
                 <div className='question-author'>
                     <p>Question submitted by user: {question.author}</p>
+                     {/*<img src={} alt={question.author} className='avatar'/>*/}
                 </div>
             </div>
         );
@@ -93,6 +99,7 @@ class ViewQuestion extends Component {
                 </div>
                 <div className='question-author'>
                     <p>Question submitted by user: {question.author}</p>
+                    <img src={this.props.users} alt={question.author} className='avatar'/>                    
                 </div>
             </div>
         );
@@ -111,11 +118,15 @@ class ViewQuestion extends Component {
     }
 }
 
-function mapStateToProps({authedUser, users}) {
+function mapStateToProps({authedUser, users}) {   
+
+
     return {
         authedUser,
         users,
     }
+
+    
 }
 
 export default withRouter(connect(mapStateToProps, actions)(ViewQuestion));
