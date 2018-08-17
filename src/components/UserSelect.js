@@ -7,7 +7,7 @@ import * as avatar from '../images'
 
 class UserSelect extends Component {
     
-    
+       
       
     handleClick = (user) => {
         console.log(user)      

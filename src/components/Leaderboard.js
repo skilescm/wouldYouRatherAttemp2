@@ -1,14 +1,14 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
 import * as avatar from '../images'
-import { Redirect } from 'react-router-dom'
-import Home from './Home'
+import { withRouter, Redirect } from 'react-router-dom'
 
 class Leaderboard extends Component {
     render () {   
         
         if (this.props.authedUser === "") {
-            return <Redirect to='/' exact component={Home} />
+            //put redirect action here to show where you came from
+            return <Redirect to='/'/>
         }
 
         return (          
@@ -63,8 +63,8 @@ function mapStateToProps ({ users, authedUser }) {
 
     let leaderboard = []
 
-    Object.keys(users).map((userId) => {
-        leaderboard.push({
+    Object.keys(users).map((userId) => {        
+       return leaderboard.push({
         id: userId,
         name: users[userId].name,
         avatar: users[userId].avatarURL,
@@ -82,4 +82,4 @@ function mapStateToProps ({ users, authedUser }) {
         authedUser,
     }
 }
-export default connect(mapStateToProps)(Leaderboard)
+export default withRouter(connect(mapStateToProps)(Leaderboard))

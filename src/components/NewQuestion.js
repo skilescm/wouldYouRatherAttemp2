@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Redirect } from 'react-router-dom'
-import  Home  from './Home'
 import * as actions from '../actions/questions'
 
 class NewQuestion extends Component {
@@ -46,7 +45,8 @@ class NewQuestion extends Component {
     render () {
 
         if (this.props.authedUser === "") {
-            return <Redirect to='/' exact component={Home} />
+            //put redirect action here to show where you came from
+            return <Redirect to='/' />
         }
 
       

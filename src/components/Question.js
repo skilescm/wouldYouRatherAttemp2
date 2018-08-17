@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
 import { Link, withRouter, Redirect } from 'react-router-dom'
-import Home from './Home'
 
 class Question extends Component {
 
@@ -10,7 +9,7 @@ class Question extends Component {
     render () {
 
         if (this.props.authedUser === "") {
-            return <Redirect to='/' exact component={Home} />
+            return <Redirect to='/' />
         }
 
         const {question} = this.props;

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { withRouter, Redirect } from 'react-router-dom'
 import * as actions from '../actions/questions'
-import Home from './Home'
 import * as avatar from '../images'
 
 
@@ -107,7 +106,8 @@ class ViewQuestion extends Component {
 
     render() {
         if (this.props.authedUser === "") {
-            return <Redirect to='/' exact component={Home} />
+            //put redirect action here to show where you came from
+            return <Redirect to='/' />
         }
         
         const questionId = this.props.location.pathname.split('/')[2]

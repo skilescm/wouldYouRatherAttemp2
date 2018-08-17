@@ -9,6 +9,11 @@ a {
   color: #252525;
 }
 
+a.active {
+  text-decoration: underline;
+  color: yellow;
+}
+
 .nav {
   display: flex;
   flex-direction: row;
