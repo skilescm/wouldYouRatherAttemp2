@@ -10,14 +10,12 @@ class UserSelect extends Component {
        
       
     handleClick = (user) => {
-        console.log(user)      
         this.props.setAuthedUser(user)
-        this.props.history.push('/dashboard') 
+        this.props.redirect === undefined ? this.props.history.push("/dashboard") : this.props.history.push(this.props.redirect)
     }
       
 
     render () {
-        console.log(this.props, "userSelect")
         return (
             <div>
                 <ul className='user-list'>
@@ -35,7 +33,10 @@ class UserSelect extends Component {
 }
 
 
-function mapStateToProps ({ users }) {
-    return {users}
+function mapStateToProps ({ users, redirect }) {
+    return {
+        users,
+        redirect
+    }
 }
 export default withRouter(connect(mapStateToProps, actions)(UserSelect))

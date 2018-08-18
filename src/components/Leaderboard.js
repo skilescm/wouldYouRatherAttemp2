@@ -2,13 +2,20 @@ import React, { Component } from 'react'
 import { connect} from 'react-redux'
 import * as avatar from '../images'
 import { withRouter, Redirect } from 'react-router-dom'
+import * as redirect from '../actions/redirect'
 
 class Leaderboard extends Component {
+
+    goBack = () => {
+        return  <Redirect to='/'/>
+    }
+
+    
     render () {   
-        
         if (this.props.authedUser === "") {
-            //put redirect action here to show where you came from
-            return <Redirect to='/'/>
+            this.props.receiveRedirect("/leaderboard")
+            return this.goBack()
+         
         }
 
         return (          
@@ -82,4 +89,4 @@ function mapStateToProps ({ users, authedUser }) {
         authedUser,
     }
 }
-export default withRouter(connect(mapStateToProps)(Leaderboard))
+export default withRouter(connect(mapStateToProps, redirect)(Leaderboard))
