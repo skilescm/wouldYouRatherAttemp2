@@ -1,9 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import * as actions from '../actions/questions'
+import * as redirect from '../actions/redirect'
 
 class NewQuestion extends Component {
+
+    goBack = () => {
+        return  <Redirect to='/'/>
+    }
 
     state = {
         optionOne: '',
@@ -45,12 +50,9 @@ class NewQuestion extends Component {
     render () {
 
         if (this.props.authedUser === "") {
-            //put redirect action here to show where you came from
-            return <Redirect to='/' />
-        }
-
-      
-          
+            this.props.receiveRedirect("/dashboard")
+            return this.goBack()
+        }       
 
         
         return (
@@ -83,4 +85,4 @@ function mapStateToProps ({ authedUser, questions }) {
         questions,
     }
 }
-export default connect(mapStateToProps, actions)(NewQuestion)
+export default connect(mapStateToProps, actions, redirect )(NewQuestion)

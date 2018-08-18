@@ -11,11 +11,12 @@ class UserSelect extends Component {
       
     handleClick = (user) => {
         this.props.setAuthedUser(user)
-        this.props.redirect === undefined ? this.props.history.push("/dashboard") : this.props.history.push(this.props.redirect)
+        this.props.redirect === "" ? this.props.history.push("/dashboard") : this.props.history.push(this.props.redirect)
     }
       
 
     render () {
+        console.log(this.props.redirect, "maaaaaan")
         return (
             <div>
                 <ul className='user-list'>

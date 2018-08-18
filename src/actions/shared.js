@@ -6,7 +6,7 @@ import { receiveRedirect } from '../actions/redirect'
 import { showLoading, hideLoading} from 'react-redux-loading'
 
 const AUTHED_ID = ''
-const route = ''
+const ROUTE = ''
 
 export function handleInitialData () {
     return (dispatch) => {
@@ -16,7 +16,7 @@ export function handleInitialData () {
            dispatch(receiveUsers(users))
            dispatch(receiveQuestions(questions))
            dispatch(setAuthedUser(AUTHED_ID))
-           dispatch(receiveRedirect(route))
+           dispatch(receiveRedirect(ROUTE))
            dispatch(hideLoading())
 
        })

@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
-import { connect} from 'react-redux'
+import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
 import * as action from '../actions/autheduser'
+import * as redirect from '../actions/redirect'
 
 
 
@@ -9,7 +10,8 @@ class Nav extends Component {
 
     signOut = () => {
         this.props.setAuthedUser("");
-        this.props.history.push('/')
+        //this.props.receiveRedirect("");
+        this.props.history.push("/")
     }
 
    
@@ -47,7 +49,10 @@ class Nav extends Component {
 }
 
 function mapStateToProps ({ authedUser }) {
-    return {authedUser}
+    return {
+        authedUser
+        
+    }
         
     
 

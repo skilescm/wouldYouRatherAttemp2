@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
-import { Redirect } from 'react-router-dom'
+import { Redirect, withRouter } from 'react-router-dom'
 import QuestionPage from './QuestionPage'
+import * as redirect from '../actions/redirect'
 
 
 class Dashboard extends Component {
@@ -9,7 +10,7 @@ class Dashboard extends Component {
 
     render () {
         if (this.props.authedUser === "") {
-            //put redirect action here to show where you came from
+            this.props.receiveRedirect("/dashboard")
             return <Redirect to='/' />
         }
 
@@ -30,4 +31,4 @@ function mapStateToProps ({ authedUser, users }) {
         
     }
 }
-export default connect(mapStateToProps)(Dashboard)
+export default withRouter(connect(mapStateToProps, redirect)(Dashboard))
