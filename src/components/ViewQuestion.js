@@ -7,10 +7,7 @@ import * as avatar from '../images'
 
 class ViewQuestion extends Component {
 
-    state = {
-        voted: "",
-        notVoted: ""
-    }
+    
     
     castVote = (questionId, optionNumber) => {
         const questions = this.props.questions
@@ -42,11 +39,12 @@ class ViewQuestion extends Component {
 
     }
 
-    renderQuestion = (question, questionId) => {        
+    renderQuestion = (question, questionId) => {
         const {optionOne, optionTwo} = question
-
+        
+    
         return (
-            
+                    
             <div className='dashboard'>
                 <p className='salutation'>You have not answered this question</p>
                 <div className='question'> 
@@ -86,7 +84,6 @@ class ViewQuestion extends Component {
         return (            
             //show vote counts for each and the percentages for each
             //highlight selected option that authedUser selected  
-            //make sure to set 
             <div className='dashboard'>
                 <p className='salutation'>You have answered this question</p>
                 <div className='question'>          
@@ -129,6 +126,7 @@ class ViewQuestion extends Component {
             this.checkVote(questionId)
             
         );
+        
     }
 }
 

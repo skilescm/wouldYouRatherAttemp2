@@ -89,6 +89,9 @@ class QuestionPage extends Component {
 
 
 function mapStateToProps ({ questions, authedUser }) {
+
+    
+
     return { questions, authedUser }
 }
 export default connect(mapStateToProps)(QuestionPage)

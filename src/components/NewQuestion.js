@@ -23,7 +23,7 @@ class NewQuestion extends Component {
     submitClick = () => {
 
         if (this.state.optionOne === '' || this.state.optionTwo === '') {
-            return <Redirect to="/" />
+            return 
         }
 
         let questionId = this.generateId()
@@ -46,6 +46,7 @@ class NewQuestion extends Component {
             }
 
         this.props.addQuestion(newQuestion)
+        this.props.history.push("/dashboard")
     }
 
     render () {
