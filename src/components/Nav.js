@@ -16,8 +16,6 @@ class Nav extends Component {
 
    
     render () { 
-        console.log(this.props.authedUser, "sup")
-        console.log(this.props.redirect, "nav redirect value")
         return (
             <nav className='nav'>
                 <ul className='site-nav'>

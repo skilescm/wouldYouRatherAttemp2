@@ -13,7 +13,6 @@ class Dashboard extends Component {
 
 
     render () {
-        console.log(this.props.redirect, "dashboard redirect value")
         if (this.props.authedUser === "") {
             return <Redirect to='/' />
         }

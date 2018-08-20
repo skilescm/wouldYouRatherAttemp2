@@ -16,7 +16,6 @@ class UserSelect extends Component {
       
 
     render () {
-        console.log(this.props.redirect, "user select redirect value")
         return (
             <div>
                 <ul className='user-list'>

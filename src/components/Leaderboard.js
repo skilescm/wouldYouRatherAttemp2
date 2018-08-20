@@ -20,7 +20,6 @@ class Leaderboard extends Component {
         if (this.props.authedUser === "") {
             return this.goBack()
         }
-       console.log(this.props.authedUser, "props bro")
 
         return (          
             <div className='container'>
