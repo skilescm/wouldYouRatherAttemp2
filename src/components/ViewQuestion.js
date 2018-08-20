@@ -41,7 +41,7 @@ class ViewQuestion extends Component {
 
     renderQuestion = (question, questionId) => {
         const {optionOne, optionTwo} = question
-        
+        console.log(this.props.users[question.author].avatarURL, "poop")
     
         return (
                     
@@ -67,7 +67,7 @@ class ViewQuestion extends Component {
                 </div>
                 <div className='question-author'>
                     <p>Question submitted by user: {question.author}</p>
-                     {/*<img src={} alt={question.author} className='avatar'/>*/}
+                     <img src={avatar[this.props.users[question.author].avatarURL]} alt={question.author} className='avatar'/>
                 </div>
             </div>
         );
@@ -109,7 +109,7 @@ class ViewQuestion extends Component {
                 </div>
                 <div className='question-author'>
                     <p>Question submitted by user: {question.author}</p>
-                    {/*<img src={this.props.users.map(questions.author)} alt={question.author} className='avatar'/>*/}                    
+                    <img src={avatar[this.props.users[question.author].avatarURL]} alt={question.author} className='avatar'/>                    
                 </div>
             </div>
         );
