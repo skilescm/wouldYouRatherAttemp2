@@ -6,6 +6,11 @@ import * as avatar from '../images'
 
 
 class ViewQuestion extends Component {
+
+    state = {
+        voted: "",
+        notVoted: ""
+    }
     
     castVote = (questionId, optionNumber) => {
         const questions = this.props.questions
@@ -24,6 +29,7 @@ class ViewQuestion extends Component {
         let optionOneVote = question.optionOne.votes.filter(vote => {
             return vote === this.props.authedUser
         })
+        console.log(optionOneVote, "vote for one")
         let optionTwoVote = question.optionTwo.votes.filter(vote => {
             return vote === this.props.authedUser
         })
@@ -71,6 +77,12 @@ class ViewQuestion extends Component {
 
     renderAnswer = (question) => {
         const {optionOne, optionTwo} = question
+        let optionOneVote = optionOne.votes.filter(vote => {
+            return vote === this.props.authedUser
+        })
+        let optionTwoVote = optionTwo.votes.filter(vote => {
+            return vote === this.props.authedUser
+        })        
         return (            
             //show vote counts for each and the percentages for each
             //highlight selected option that authedUser selected  
@@ -79,15 +91,18 @@ class ViewQuestion extends Component {
                 <p className='salutation'>You have answered this question</p>
                 <div className='question'>          
                     <div className='optionOne'>
-                        {optionOne.text}                
+                    {optionOneVote.length > 0 ? <p className="voted">Your Vote</p>: null}
+                        <p>{optionOne.text}</p>             
                     </div>
                     <div className='optionTwo'>
-                        {optionTwo.text}
+                    {optionTwoVote.length > 0 ? <p className="voted">Your Vote</p>: null}
+                        <p>{optionTwo.text}</p>
                     </div>
                 </div>
                 <div className='question'>
                     <div className='optionOne-stats'>
-                        <p>Total vote count: {optionOne.votes.length}</p>
+                        <p>Total vote count: {optionOne.votes.length}</p>                  
+    
                         <p>Percentage of votes: {optionOne.votes.length * 100.00/(optionOne.votes.length + optionTwo.votes.length)}%</p>
                     </div>
                     <div className='optionTwo-stats'>

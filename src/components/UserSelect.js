@@ -25,8 +25,7 @@ class UserSelect extends Component {
                             {user.name}                      
                         </li>
                     ))}
-                 </ul>
-                
+                 </ul>                
             </div>
         )
     }
