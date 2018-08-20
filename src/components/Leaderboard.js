@@ -6,17 +6,21 @@ import * as redirect from '../actions/redirect'
 
 class Leaderboard extends Component {
 
+    componentDidMount () {
+        this.props.receiveRedirect("leaderboard")
+
+    }
+
     goBack = () => {
         return  <Redirect to='/'/>
     }
 
     
-    render () {   
+    render () {
         if (this.props.authedUser === "") {
-            this.props.receiveRedirect("/leaderboard")
             return this.goBack()
-         
         }
+       console.log(this.props.authedUser, "props bro")
 
         return (          
             <div className='container'>
@@ -66,7 +70,7 @@ class Leaderboard extends Component {
 }
 
 
-function mapStateToProps ({ users, authedUser }) {
+function mapStateToProps ({ users, authedUser, redirect }) {
 
     let leaderboard = []
 
@@ -87,6 +91,7 @@ function mapStateToProps ({ users, authedUser }) {
         leaderboard,
         users,
         authedUser,
+        redirect
     }
 }
 export default withRouter(connect(mapStateToProps, redirect)(Leaderboard))

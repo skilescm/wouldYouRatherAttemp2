@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { NavLink, withRouter } from 'react-router-dom'
-import * as action from '../actions/autheduser'
-import * as redirect from '../actions/redirect'
+import {setAuthedUser} from '../actions/autheduser'
+import {receiveRedirect} from '../actions/redirect'
 
 
 
@@ -10,13 +10,14 @@ class Nav extends Component {
 
     signOut = () => {
         this.props.setAuthedUser("");
-        //this.props.receiveRedirect("");
+        this.props.receiveRedirect("");
         this.props.history.push("/")
     }
 
    
     render () { 
         console.log(this.props.authedUser, "sup")
+        console.log(this.props.redirect, "nav redirect value")
         return (
             <nav className='nav'>
                 <ul className='site-nav'>
@@ -38,9 +39,9 @@ class Nav extends Component {
                 </ul>
                 <ul className='auth'>
                     <li >
-                        <button className='sign-out' onClick={() => {this.signOut()}} >
+                       <button className='sign-out' onClick={() => {this.signOut()}} >
                             Sign Out
-                        </button>                    
+                        </button>            
                     </li>
                 </ul>
             </nav>
@@ -48,9 +49,12 @@ class Nav extends Component {
     }
 }
 
-function mapStateToProps ({ authedUser }) {
+const actions = {setAuthedUser, receiveRedirect}
+
+function mapStateToProps ({ authedUser, redirect }) {
     return {
-        authedUser
+        authedUser,
+        redirect
         
     }
         
@@ -59,7 +63,7 @@ function mapStateToProps ({ authedUser }) {
 }
 
 
-export default withRouter(connect(mapStateToProps, action)(Nav))
+export default withRouter(connect(mapStateToProps, actions )(Nav))
 
 
 

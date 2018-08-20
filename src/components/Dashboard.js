@@ -7,10 +7,14 @@ import * as redirect from '../actions/redirect'
 
 class Dashboard extends Component {
 
+    componentDidMount () {
+        this.props.receiveRedirect("dashboard")
+    }
+
 
     render () {
+        console.log(this.props.redirect, "dashboard redirect value")
         if (this.props.authedUser === "") {
-            this.props.receiveRedirect("/dashboard")
             return <Redirect to='/' />
         }
 

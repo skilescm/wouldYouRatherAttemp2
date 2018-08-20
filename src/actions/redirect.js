@@ -1,8 +1,8 @@
 export const RECEIVE_REDIRECT = 'RECEIVE_REDIRECT'
 
-export function receiveRedirect (route) {
+export function receiveRedirect (id) {
     return {
         type: RECEIVE_REDIRECT,
-        route,
+        id,
     }
 }

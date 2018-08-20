@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect} from 'react-redux'
-import  * as actions from '../actions/autheduser'
+import  * as action from '../actions/autheduser'
 import { withRouter } from 'react-router-dom'
 import * as avatar from '../images'
 
@@ -16,7 +16,7 @@ class UserSelect extends Component {
       
 
     render () {
-        console.log(this.props.redirect, "maaaaaan")
+        console.log(this.props.redirect, "user select redirect value")
         return (
             <div>
                 <ul className='user-list'>
@@ -40,4 +40,4 @@ function mapStateToProps ({ users, redirect }) {
         redirect
     }
 }
-export default withRouter(connect(mapStateToProps, actions)(UserSelect))
+export default withRouter(connect(mapStateToProps, action)(UserSelect))

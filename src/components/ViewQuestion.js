@@ -38,7 +38,6 @@ class ViewQuestion extends Component {
 
     renderQuestion = (question, questionId) => {        
         const {optionOne, optionTwo} = question
-          
 
         return (
             
@@ -98,7 +97,7 @@ class ViewQuestion extends Component {
                 </div>
                 <div className='question-author'>
                     <p>Question submitted by user: {question.author}</p>
-                    <img src={this.props.users} alt={question.author} className='avatar'/>                    
+                    {/*<img src={this.props.users.map(questions.author)} alt={question.author} className='avatar'/>*/}                    
                 </div>
             </div>
         );

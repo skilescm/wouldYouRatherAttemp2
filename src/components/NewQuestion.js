@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Redirect, withRouter } from 'react-router-dom'
-import * as actions from '../actions/questions'
-import * as redirect from '../actions/redirect'
+import { Redirect } from 'react-router-dom'
+import {addQuestion} from '../actions/questions'
+import {receiveRedirect} from '../actions/redirect'
 
 class NewQuestion extends Component {
-
-    goBack = () => {
-        return  <Redirect to='/'/>
-    }
 
     state = {
         optionOne: '',
         optionTwo: '',
     }
+
+    componentDidMount () {
+        this.props.receiveRedirect("add")
+    }
+
 
     generateId = () => {
         return '_' + Math.random().toString(36).substr(2, 9);
@@ -22,7 +23,7 @@ class NewQuestion extends Component {
     submitClick = () => {
 
         if (this.state.optionOne === '' || this.state.optionTwo === '') {
-            return
+            return <Redirect to="/" />
         }
 
         let questionId = this.generateId()
@@ -48,11 +49,9 @@ class NewQuestion extends Component {
     }
 
     render () {
-
         if (this.props.authedUser === "") {
-            this.props.receiveRedirect("/dashboard")
-            return this.goBack()
-        }       
+            return <Redirect to="/" />
+        }   
 
         
         return (
@@ -78,11 +77,15 @@ class NewQuestion extends Component {
     }
 }
 
+const actions = {addQuestion, receiveRedirect}
+
 
 function mapStateToProps ({ authedUser, questions }) {
     return {
         authedUser,
         questions,
+    
     }
 }
-export default connect(mapStateToProps, actions, redirect )(NewQuestion)
+
+export default connect(mapStateToProps, actions)(NewQuestion)
